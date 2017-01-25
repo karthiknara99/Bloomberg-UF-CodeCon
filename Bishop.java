@@ -18,12 +18,8 @@ public class Bishop
         int moves = 0;
         int sX, sY, eX, eY;
         
-        sX = sB / 8;
-        if( sB % 8 == 0 )
-            sX--;
-        eX = eB / 8;
-        if( eB % 8 == 0 )
-            eX--;
+        sX = ( sB - 1 ) / 8;
+        eX = ( eB - 1 ) / 8;
         sY = ( sB - 1 ) % 8;
         eY = ( eB - 1 ) % 8;
         
