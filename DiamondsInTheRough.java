@@ -17,18 +17,18 @@ public class DiamondsInTheRough
     {
         return (y1 - y2) * (x1 - x3) == (y1 - y3) * (x1 - x2);
     }
-    public static boolean pntInTriangle( double px, double py, double x1, double y1, double x2, double y2, double x3, double y3 )
+    public static boolean pntInTriangle( double x, double y, double x1, double y1, double x2, double y2, double x3, double y3 )
     {
-        double o1 = getOrientationResult(x1, y1, x2, y2, px, py);
-        double o2 = getOrientationResult(x2, y2, x3, y3, px, py);
-        double o3 = getOrientationResult(x3, y3, x1, y1, px, py);
+        double o1 = getOrientationResult(x1, y1, x2, y2, x, y);
+        double o2 = getOrientationResult(x2, y2, x3, y3, x, y);
+        double o3 = getOrientationResult(x3, y3, x1, y1, x, y);
 
         return (o1 == o2) && (o2 == o3);
     }
 
-    private static int getOrientationResult( double x1, double y1, double x2, double y2, double px, double py )
+    private static int getOrientationResult( double x1, double y1, double x2, double y2, double x, double y )
     {
-        double orientation = ( (x2 - x1) * (py - y1) ) - ( (px - x1) * (y2 - y1) );
+        double orientation = ( (x2 - x1) * (y - y1) ) - ( (x - x1) * (y2 - y1) );
         if (orientation > 0)
             return 1;
         else if (orientation < 0)
